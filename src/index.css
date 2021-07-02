@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.album-photos-app {
+  text-align: center;
+}
+
+.search-form {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.get-album-photos-by-id-input {
+  width: 60%;
+  height: 40px;
+}
+
+.get-album-photos-by-id-button {
+  width: 40%;
+  height: 45px;
+  margin-left: 5px;
+  font-size: small;
+}
+
+.album-photos {
+  display: flex;
+}
+
+.single-photo {
+  width: 25%;
+}
