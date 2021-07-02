@@ -40,10 +40,11 @@ code {
   padding: 20px;
 }
 
-img.album-photo {
-  border-radius: 20px;
+.single-photo.col {
+  margin-bottom: 20px;
 }
 
 p.image-title {
   font-size: small;
+  padding: 5px;
 }
