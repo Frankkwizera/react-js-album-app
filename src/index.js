@@ -4,9 +4,13 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Button, Input } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 class App extends React.Component {
+  backend_enpoint = "https://jsonplaceholder.typicode.com/albums/";
   constructor() {
     super();
     this.state = { 
@@ -20,33 +24,46 @@ class App extends React.Component {
   }
 
   retrieveAlbumPhotos = () => {
-    console.log("<<<<<< About to retrieve album photos for ", this.state.value);
+    const albumPhotosEndpoint = this.backend_enpoint + this.state.value + "/photos";
+    console.log("<<<<<< albumPhotosEndpoint ", albumPhotosEndpoint);
+    fetch(albumPhotosEndpoint)
+      .then(response => response.json())
+      .then(
+        (albumPhotos) => {
+          console.log("<<<<< backend response: ", albumPhotos)
+          this.setState({
+            photos: albumPhotos
+          });
+        },
+        (error) => {
+          console.error("Error: ", error);
+        }
+      )
   };
 
   render () {
     return (
-      <div className="album-photos-app">
-      <div>
+      <Container className="album-photos-app">
         <h2>Album Photos</h2>
         <div className="search-form">
-          <input 
+          <Input 
             className="get-album-photos-by-id-input" 
             placeholder="Use album id" type="number"
-            onChange={this.onInputChange}></input>
-          <button 
+            onChange={this.onInputChange} />
+          <Button 
             className="get-album-photos-by-id-button"
             onClick={this.retrieveAlbumPhotos}>
-              Get Album Photos By ID</button>
+              Get Album Photos By ID</Button>
         </div>
-        <div className="album-photos">
-          {this.state.photos.map((photo, index) => (
-            <div className="single-photo">
-              <p>{index}</p>
-            </div>
+        <Row className="album-photos">
+          {this.state.photos.map((photo) => (
+            <Col className="single-photo col" sm="4">
+              <img className="album-photo" width="100%" src={photo.thumbnailUrl} alt={photo.url} />
+              <p className="image-title">{photo.title}</p>
+            </Col>
             ))}
-        </div>
-      </div>
-    </div>
+        </Row>
+    </Container>
     )
   }
 }

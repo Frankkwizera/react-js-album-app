@@ -18,27 +18,32 @@ code {
 }
 
 .search-form {
-  width: 60%;
+  width: 75%;
   margin: 0 auto;
   display: flex;
 }
 
 .get-album-photos-by-id-input {
-  width: 60%;
-  height: 40px;
+  width: 50%;
+  height: 45px;
 }
 
 .get-album-photos-by-id-button {
-  width: 40%;
+  width: 50%;
   height: 45px;
+  border-radius: 20px;
   margin-left: 5px;
   font-size: small;
 }
 
 .album-photos {
-  display: flex;
+  padding: 20px;
 }
 
-.single-photo {
-  width: 25%;
+img.album-photo {
+  border-radius: 20px;
+}
+
+p.image-title {
+  font-size: small;
 }
