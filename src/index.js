@@ -19,10 +19,17 @@ class App extends React.Component {
     };
   };
 
+  /**
+   * Updates the selected album id.
+   * @param {Event} event - Input change event. 
+   */
   onInputChange = (event) => {
     this.setState({value: event.target.value});
   }
 
+  /**
+   * Retrieves album photos from the backend API.
+   */
   retrieveAlbumPhotos = () => {
     if (!this.state.value) {
       alert('Input the album ID.');
@@ -49,6 +56,9 @@ class App extends React.Component {
       )
   };
 
+  /**
+   * Renders HTML elements in the DOM.
+   */
   render () {
     return (
       <Container className="album-photos-app">
