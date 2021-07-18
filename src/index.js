@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 class App extends React.Component {
-  backend_enpoint = "https://jsonplaceholder.typicode.com/albums/";
+  backend_enpoint = "https://franky250.pythonanywhere.com/get/album/photos/";
   constructor() {
     super();
     this.state = { 
@@ -35,7 +35,7 @@ class App extends React.Component {
       alert('Input the album ID.');
       return;
     }
-    const albumPhotosEndpoint = this.backend_enpoint + this.state.value + "/photos";
+    const albumPhotosEndpoint = this.backend_enpoint + this.state.value
     fetch(albumPhotosEndpoint)
       .then(response => response.json())
       .then(
