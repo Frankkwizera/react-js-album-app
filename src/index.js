@@ -36,7 +36,11 @@ class App extends React.Component {
       return;
     }
     const albumPhotosEndpoint = this.backend_enpoint + this.state.value
-    fetch(albumPhotosEndpoint)
+    fetch(albumPhotosEndpoint, {
+      headers: {
+        'Access-Control-Allow-Origin': "https://franky250.pythonanywhere.com"
+      }
+    })
       .then(response => response.json())
       .then(
         (albumPhotos) => {
